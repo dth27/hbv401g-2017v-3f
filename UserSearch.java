@@ -4,24 +4,28 @@
  * and open the template in the editor.
  */
 package vinnsla;
-
+import gogn.SqlDaemi;
 /**
  *
  * @author Dottedsocks
  */
 public class UserSearch {
-    
+    //breyta
     public UserSearch(){
-        
+       //breyta
+       
     }
     public void getFlights(String howMany, String from, String to, String date){
+        SqlDaemi leit = new SqlDaemi();
         
     }
     public void sortFlights(){
         
     }
     public void createFlights(){
-        
+        for (;;){
+            //bua til flug
+        }
     }
     
 }
