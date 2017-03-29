@@ -21,7 +21,7 @@ public class SearchService {
         //Hofum hér samband við SqlDaemi?
         try{
         Lovisa.leitleit();
-        System.out.println("Lovisa stóð sig!");
+        //System.out.println("Lovisa stóð sig!");
         }
         catch (Exception e){
             System.out.println(e);

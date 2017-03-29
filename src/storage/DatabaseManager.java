@@ -45,7 +45,7 @@ public class DatabaseManager {
     public Flight leitleit(){
         Connection conCon = null;
         String jon = "person";
-        Flight[] Flugin = new Flight[10];
+        Flight[] Flugin = new Flight[01];
         try
         {
             conCon = DriverManager.getConnection("jdbc:sqlite:flug.db");
