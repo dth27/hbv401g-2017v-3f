@@ -9,7 +9,7 @@ package model;
  *
  * @author Dottedsocks
  */
-public class Flight {
+public class Flight implements Comparable<Flight> {
     private String flight_no;
     private String departure_from;
     private String arrival_to;
@@ -144,6 +144,11 @@ public class Flight {
      */
     public void setArrival_time(int arrival_time) {
         this.arrival_time = arrival_time;
+    }
+
+    @Override
+    public int compareTo(Flight o) {
+        return o.ticket_price - this.ticket_price;
     }
     
     

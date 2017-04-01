@@ -9,6 +9,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import model.*;
 /**
  *
@@ -42,12 +43,12 @@ public class DatabaseManager {
         }
     }
     
-    public Flight leitleit(){
+    public ArrayList<Flight> leitleit(){
         Connection conCon = null;
         String jon = "person";
-        Flight[] Flugin = new Flight[01];
+        ArrayList<Flight>  theFlights = new ArrayList<>();
         try
-        {
+        {//nota id sem nafn med rs.eitthva
             conCon = DriverManager.getConnection("jdbc:sqlite:flug.db");
             Statement statement = conCon.createStatement();
             statement.setQueryTimeout(30);
@@ -63,7 +64,12 @@ public class DatabaseManager {
              // read the result set
                 System.out.println("name = " + rs.getString("name"));
                 System.out.println("id = " + rs.getInt("id"));
-                Flugin[i] = new Flight();
+                Flight flug = new Flight();
+                //flug.setAirline("airline");
+                //flug.setArrival_time("arrival_time");
+               // flug.setArrival_to(jon);
+                //flug.setDeparture_from(jon);
+               // theFlights.add(flug);
                 //Flugin[i].setAirline(rs.getString("airline"));
                // Flugin[i].setArrival_time(rs.getInt("arrival_time"));
                 i++;
@@ -80,7 +86,7 @@ public class DatabaseManager {
           // it probably means no database file is found
           System.err.println(e.getMessage());
         }
-        return Flugin[10];
+        return theFlights;
     }
     /**
      * @param args the command line arguments

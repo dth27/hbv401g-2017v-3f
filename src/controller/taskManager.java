@@ -25,7 +25,7 @@ public class taskManager {
     }
     public void buumTilLeit(String hvar, String hvenaer, int fjoldi, String hvadan){
 
-        Jona.createSearch(hvar, hvenaer, fjoldi, hvadan);
+        Jona.getFlights(hvar, hvenaer, fjoldi, hvadan);
         System.out.println("Jona sendir a Lovisu: " + hvar + " " + hvenaer +" " + fjoldi +" " + hvadan);
         
     }
