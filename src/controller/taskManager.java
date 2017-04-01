@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 public class taskManager {
     SearchService Jona;
     public taskManager (){
+        int i=9;
         Jona = new SearchService();
     }
     public JPanel synumNyjaSidu(){
