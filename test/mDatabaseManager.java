@@ -1,3 +1,9 @@
+
+
+import java.sql.Connection;
+import java.util.ArrayList;
+import model.*;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,6 +14,9 @@
  *
  * @author Dottedsocks
  */
-interface DatabaseManager {
+public interface mDatabaseManager {
+    ArrayList<Flight> mFlights = new ArrayList<>();
+    
+    
     
 }
