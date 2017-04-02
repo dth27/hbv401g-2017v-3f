@@ -148,7 +148,7 @@ public class Flight implements Comparable<Flight> {
 
     @Override
     public int compareTo(Flight o) {
-        return o.ticket_price - this.ticket_price;
+        return this.ticket_price - o.ticket_price;
     }
     
     

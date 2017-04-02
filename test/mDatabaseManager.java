@@ -14,9 +14,7 @@ import model.*;
  *
  * @author Dottedsocks
  */
-public interface mDatabaseManager {
-    ArrayList<Flight> mFlights = new ArrayList<>();
+interface mDatabaseManager {
     
-    
-    
+   
 }

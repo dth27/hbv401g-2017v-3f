@@ -37,8 +37,12 @@ public class SearchService {
         
         
     }
-    public void sortFlights(){
-        Collections.sort(flightInfo);
+    public void sortFlights(ArrayList<Flight> a){
+        try{
+        Collections.sort(a);
+        } catch (Exception e){
+            System.out.println("Villa i sort: "+ e );
+        }
     }
     
 }
