@@ -15,10 +15,10 @@ import model.Flight;
  * @author Dottedsocks
  */
 public class SearchService { 
-    DatabaseManager Lovisa;
+    DatabaseManager LovisaDBmanager;
     ArrayList<Flight> flightInfo;
     public SearchService(){
-       Lovisa = new DatabaseManager();
+       LovisaDBmanager = new DatabaseManager();
        flightInfo = new ArrayList<>();
        
     }
@@ -26,9 +26,9 @@ public class SearchService {
     public void getFlights(String toWhere, String date, int numbofPpl, String fromWhere){
         //Hofum hér samband við SqlDaemi?
         try{
-        flightInfo = Lovisa.leitleit(toWhere, date, numbofPpl, fromWhere);
+        flightInfo = LovisaDBmanager.leitleit(toWhere, date, numbofPpl, fromWhere);
         
-        //System.out.println("Lovisa stóð sig!");
+        //System.out.println("LovisaDBmanager stóð sig!");
         }
         catch (Exception e){
             System.out.println(e);

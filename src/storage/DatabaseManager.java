@@ -43,7 +43,7 @@ public class DatabaseManager {
         }
     }
     
-    public ArrayList<Flight> leitleit(){
+    public ArrayList<Flight> leitleit(String toWhere, String date, int numbofPpl, String fromWhere){
         Connection conCon = null;
         String jon = "person";
         ArrayList<Flight>  theFlights = new ArrayList<>();
@@ -56,8 +56,10 @@ public class DatabaseManager {
             statement.executeUpdate("create table person (id integer, name string)");
             statement.executeUpdate("insert into person values(1, 'leo')");
             statement.executeUpdate("insert into person values(2, 'yui')");
-            ResultSet rs = statement.executeQuery("select * from "+jon);
-           
+            
+            ResultSet rs = statement.executeQuery("select * from schedule");
+            ResultSet rs2 = statement.executeQuery("select * from flight where flight_id = (select schedule where departure_from = " + fromWhere + " and arrival_to ="+toWhere +" and flight_date=" +date + ")");
+            
             int i = 0;
             while(rs.next())
              {
