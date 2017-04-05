@@ -13,9 +13,9 @@ import javax.swing.JPanel;
  */
 
 public class taskManager {
-    SearchService Jona;
+    SearchService JonaSearchService;
     public taskManager (){
-        Jona = new SearchService();
+        JonaSearchService = new SearchService();
     }
     public JPanel synumNyjaSidu(){
         JPanel jResultPanel = new JPanel();
@@ -23,10 +23,10 @@ public class taskManager {
         return jResultPanel;
         
     }
-    public void buumTilLeit(String hvar, String hvenaer, int fjoldi, String hvadan){
+    public void buumTilLeit(String toWhere, String date, int numbofPpl, String fromWhere){
 
-        Jona.getFlights(hvar, hvenaer, fjoldi, hvadan);
-        System.out.println("Jona sendir a Lovisu: " + hvar + " " + hvenaer +" " + fjoldi +" " + hvadan);
+        JonaSearchService.getFlights(toWhere, date, numbofPpl, fromWhere);
+        System.out.println("Jona sendir a Lovisu: " + toWhere + " " + date +" " + numbofPpl +" " + fromWhere);
         
     }
     

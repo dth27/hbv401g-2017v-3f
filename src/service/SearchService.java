@@ -23,10 +23,10 @@ public class SearchService {
        
     }
     //Býr til leit, sendum á userSearch
-    public void getFlights(String hvar, String hvenaer, int fjoldi, String hvadan){
+    public void getFlights(String toWhere, String date, int numbofPpl, String fromWhere){
         //Hofum hér samband við SqlDaemi?
         try{
-        flightInfo = Lovisa.leitleit();
+        flightInfo = Lovisa.leitleit(toWhere, date, numbofPpl, fromWhere);
         
         //System.out.println("Lovisa stóð sig!");
         }
