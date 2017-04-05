@@ -56,7 +56,7 @@ public class DatabaseManager {
             statement.executeUpdate("create table person (id integer, name string)");
             statement.executeUpdate("insert into person values(1, 'leo')");
             statement.executeUpdate("insert into person values(2, 'yui')");
-            ResultSet rs = statement.executeQuery("select * from "+jon);
+            ResultSet rs = statement.executeQuery("select *  from "+jon);
            
             int i = 0;
             while(rs.next())
