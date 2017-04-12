@@ -1,22 +1,21 @@
 
 
 CREATE TABLE Flight (
-  flight_no varchar(25),
-  flight_id int PRIMARY KEY,
+  flight_no varchar(25) PRIMARY KEY,
   seats int,
-  flight_date int,
   ticket_price int,
   airline varchar(25)
-
 );
 CREATE TABLE Schedule (
-  flight_id int,
+  flight_id int PRIMARY KEY,
+  flight_NO int,  
   departure_time int,
   arrival_time int,
   flight_date int,
+  availableSeats int,
   departure_from varchar(50),
   arrival_to varchar(50),
-  FOREIGN KEY (flight_id) REFERENCES Flight (flight_id)
+  FOREIGN KEY (flight_NO) REFERENCES Flight (flight_no)
 );
 
 CREATE TABLE Passanger (
@@ -24,13 +23,15 @@ CREATE TABLE Passanger (
   SSno int PRIMARY KEY,
   phoneNo int,
   email varchar(30),
-  luggage BOOLEAN
+  luggage BOOLEAN,
+  FOREIGN KEY (bookingId) REFERENCES Booking (bookingId)
+   
 );
 
 CREATE TABLE Booking (
   Ticket_price int,
-  Passenger_info int,
   Booking_info int,
+  numbofPassenger int,
   paid boolean,
   bookingID int PRIMARY KEY
 );

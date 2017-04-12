@@ -6,30 +6,32 @@
  */
 package controller;
 import service.*;
-import javax.swing.JPanel;
+import javax.swing.table.TableModel;
 //import view.mainWindow.AdgerdTag;
 /**
  *
  * @author Dottedsocks
  */
-
+//TaskManager: takes requests from MainWindow and sends it to the appropriate service
+//             Also takes the result from the services and sends it to MainWindow to update view
 public class taskManager {
     SearchService JonaSearchService;
+    
     public taskManager (){
         JonaSearchService = new SearchService();
     }
-    public JPanel synumNyjaSidu(){
-        JPanel jResultPanel = new JPanel();
-       
-        return jResultPanel;
+    
+    //ShowResults gets the results from search service and creates a site
+    public TableModel manageSearch(String toWhere, int date, int numbofPpl, String fromWhere){
         
+        return JonaSearchService.getFlights(toWhere, date, numbofPpl, fromWhere);
+         
     }
-    public void buumTilLeit(String toWhere, String date, int numbofPpl, String fromWhere){
+    //fall sem byr til bokun og sendir a bookingservice
+    
 
-        JonaSearchService.getFlights(toWhere, date, numbofPpl, fromWhere);
-        System.out.println("Jona sendir a Lovisu: " + toWhere + " " + date +" " + numbofPpl +" " + fromWhere);
-        
-    }
+    
+    
     
     
 }

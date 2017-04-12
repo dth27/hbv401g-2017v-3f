@@ -11,8 +11,8 @@ package model;
  */
 public class Booking {
     private int Ticket_price;
-    private int Passenger_info;
-    private int Booking_info;
+    private int numbOfPass;
+    private int Booking_id;
     private boolean paid;
 
     /**
@@ -30,31 +30,31 @@ public class Booking {
     }
 
     /**
-     * @return the Passenger_info
+     * @return the numbOfPass
      */
     public int getPassenger_info() {
-        return Passenger_info;
+        return numbOfPass;
     }
 
     /**
-     * @param Passenger_info the Passenger_info to set
+     * @param Passenger_info the numbOfPass to set
      */
     public void setPassenger_info(int Passenger_info) {
-        this.Passenger_info = Passenger_info;
+        this.numbOfPass = Passenger_info;
     }
 
     /**
-     * @return the Booking_info
+     * @return the Booking_id
      */
     public int getBooking_info() {
-        return Booking_info;
+        return Booking_id;
     }
 
     /**
-     * @param Booking_info the Booking_info to set
+     * @param Booking_info the Booking_id to set
      */
     public void setBooking_info(int Booking_info) {
-        this.Booking_info = Booking_info;
+        this.Booking_id = Booking_info;
     }
 
     /**
@@ -71,13 +71,5 @@ public class Booking {
         this.paid = paid;
     }
     
-    public void addPassenger(int passenger){
-        
-    }
-    public void removePassenger(int passenger){
-        
-    }
-    public boolean updatePayment(){
-        return true;
-    }
+   
 }

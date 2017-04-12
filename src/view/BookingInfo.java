@@ -10,14 +10,39 @@ package view;
  * @author Dottedsocks
  */
 public class BookingInfo extends javax.swing.JDialog {
-
+    private boolean ok = false;
     /**
      * Creates new form BookingInfo
      */
     public BookingInfo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        jBook.setEnabled(false);
     }
+    //TODO laga thetta fyrir booking
+    /*yourJTextField.getDocument().addDocumentListener(new DocumentListener() {
+  public void changedUpdate(DocumentEvent e) {
+    changed();
+  }
+  public void removeUpdate(DocumentEvent e) {
+    changed();
+  }
+  public void insertUpdate(DocumentEvent e) {
+    changed();
+  }
+
+  public void changed() {
+     if (yourJTextField.getText().equals("")){
+       loginButton.setEnabled(false);
+     }
+     else {
+       loginButton.setEnabled(true);
+    }
+
+  }
+});*/
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,6 +56,8 @@ public class BookingInfo extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        jBook = new javax.swing.JButton();
+        jCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -41,6 +68,13 @@ public class BookingInfo extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(jList1);
 
+        jBook.setText("Book flight");
+        jBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBookActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -49,13 +83,25 @@ public class BookingInfo extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(173, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBook)
+                .addGap(55, 55, 55))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 154, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addComponent(jBook))
         );
+
+        jCancel.setText("Cancel");
+        jCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCancelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,18 +110,51 @@ public class BookingInfo extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCancel)
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jCancel))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBookActionPerformed
+  
+        
+        ok = true;
+        closeWindow();
+        //nær i uppl sendir á taskmanager
+        //Passenger nafn, kt
+        //farthegafjolda
+        // flight id
+        
+                
+    }//GEN-LAST:event_jBookActionPerformed
+
+    private void jCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCancelActionPerformed
+        ok = true;
+        closeWindow();
+    }//GEN-LAST:event_jCancelActionPerformed
+    private void closeWindow(){
+        setVisible(false);
+        dispose();
+    }
+    public boolean isOk() {
+        return ok;
+    }
+    public void setOk(boolean b) {
+        ok = b;
+    }
     /**
      * @param args the command line arguments
      */
@@ -119,6 +198,8 @@ public class BookingInfo extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBook;
+    private javax.swing.JButton jCancel;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
