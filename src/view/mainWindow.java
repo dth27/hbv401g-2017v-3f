@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import storage.DatabaseManager;
 
-
+//TODO bua til dialog glugga fyrir Flugmida og allt sem tilheyrir
 
 /**
  *

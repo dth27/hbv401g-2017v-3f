@@ -42,7 +42,9 @@ public class DatabaseManager {
             }
         }
     }
-    //TODO Bua til SQL skipun
+    //TODO Bua til SQL skipun til ad leita ad  flugi 
+    //TODO bua til fall sem byr til ArrayLista ur result
+    //Skilar Arraylista med flugunum
     public ArrayList<Flight> leitleit(String toWhere, int date, int numbofPpl, String fromWhere){
         Connection conCon = null;
         String jon = "person";
@@ -88,7 +90,7 @@ public class DatabaseManager {
         }
         return theFlights;
     }
-    
+    //TODO eyda thessari hardkodudu falli
     public ArrayList fakeLeit(){
         ArrayList<Flight> flListi = new ArrayList<>();
         Flight flug, flug2, flug3;
@@ -136,7 +138,8 @@ public class DatabaseManager {
     //TODO bua til SQL statament sem laekkar saetisfjolda
     //TODO laga inntak 
     //Ath. skilar engu
-    public void updatePassenger(int no, String name){
+    //TODO villucheckka gagnagrunn hvort nu thegar er buid ad setja inn farthegann
+    public void updatePassenger(int PassNo, String name, int ssno, int flightId){
         Connection con = null;
         try {
             con = DriverManager.getConnection("jdbc:sqlite:flug.db");
@@ -168,7 +171,18 @@ public class DatabaseManager {
        
         return 0;
     }
-    
+    //TODO fall sem naer i passenger ur gagnagrunni
+    public Passenger getPassenger(){
+        return null;
+    }
+    //TODO SQL fall sem byr til bokun
+    public Booking createBooking(){
+        return null;
+    }
+   //TODO SQL fall sem naer i staersta bookno og skilar thvi
+    public int getMaxBookingNo(){
+        return 0;
+    }
     
     
     /**

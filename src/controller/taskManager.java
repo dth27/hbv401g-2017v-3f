@@ -16,22 +16,35 @@ import javax.swing.table.TableModel;
 //             Also takes the result from the services and sends it to MainWindow to update view
 public class taskManager {
     SearchService JonaSearchService;
+    BookingService BuiBookingService;
+    
     
     public taskManager (){
         JonaSearchService = new SearchService();
+        BuiBookingService = new BookingService();
     }
     
     //ShowResults gets the results from search service and creates a site
-    public TableModel manageSearch(String toWhere, int date, int numbofPpl, String fromWhere){
+    public TableModel manageSearch(String toWhere, int date, int numbofPass, String fromWhere){
         
-        return JonaSearchService.getFlights(toWhere, date, numbofPpl, fromWhere);
+        return JonaSearchService.getFlights(toWhere, date, numbofPass, fromWhere);
          
     }
-    //fall sem byr til bokun og sendir a bookingservice
+    //TODOD fall sem faer uppl fra bookingInfo og sendir a bookingService
+    
+    //TODO fall sem tekur vid uppl um bokunina 
+    public void manageBooking(int meiriupll){
+     // BuiBookingService.Flightbooking(meiriupll, PassName, ssno, meiriupll);
+       
+    }
+    //TODO fall sem naer i upplysingar og sendir a booking ticket panel (a eftir ad gera)
+    public TableModel getBookingInfo(){
+        return BuiBookingService.bookingPassTable();
+    }
+    public TableModel getPassengerInfo(){
+         return BuiBookingService.bookingFlightTable();
+    }
+    
     
 
-    
-    
-    
-    
 }

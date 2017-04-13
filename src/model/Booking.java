@@ -14,7 +14,7 @@ public class Booking {
     private int numbOfPass;
     private int Booking_id;
     private boolean paid;
-
+    //TODO paela i Paid breytunni
     /**
      * @return the Ticket_price
      */
