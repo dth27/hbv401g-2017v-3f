@@ -42,7 +42,9 @@ public class DatabaseManager {
             }
         }
     }
-    //TODO Bua til SQL skipun til ad leita ad  flugi 
+    
+
+//TODO Bua til SQL skipun til ad leita ad  flugi 
     //TODO bua til fall sem byr til ArrayLista ur result
     //Skilar Arraylista med flugunum
     public ArrayList<Flight> leitleit(String toWhere, int date, int numbofPpl, String fromWhere){
@@ -58,35 +60,38 @@ public class DatabaseManager {
             statement.executeUpdate("create table person (id integer, name string)");
             statement.executeUpdate("insert into person values(1, 'leo')");
             statement.executeUpdate("insert into person values(2, 'yui')");
-            
-            ResultSet rs2 = statement.executeQuery("select * from schedule");
-            
-            ResultSet rs = statement.executeQuery("select * from flight where flight_id = (select schedule where departure_from = " + fromWhere + " and arrival_to ="+toWhere +" and flight_date=" +date + ")");
-            
-            int i = 0;
+            //ResultSet rs2 = statement.executeQuery("select * from schedule");
+            //Hvad myndum vid ná i, ekki frekar ur schedule?
+            //nei joinum þessu bara
+            ResultSet rs = statement.executeQuery("select * from flight join schedule on flight.flight_no = schedule.flight_no where departure_from = " + fromWhere + " and arrival_to ="+toWhere +" and flight_date=" +date + ")");
             while(rs.next())
              {
              // read the result set
- 
                 Flight flug = new Flight();
                 flug.setAirline(rs.getString("airline"));
+                
                 flug.setArrival_time(rs.getInt("arrival_time"));
                 flug.setArrival_to(rs.getString(""));
-                flug.setDeparture_from(jon);
+                
+                flug.setDeparture_from(rs.getString(""));
+                flug.setDeparture_time(date);
+                
+                flug.setFlight_date(date);
+                flug.setFlight_no(jon);
+                
+                flug.setSeats(date);
+                flug.setTicket_price(date);
+
                 theFlights.add(flug);
-                //Flugin[i].setAirline(rs.getString("airline"));
-                //Flugin[i].setArrival_time(rs.getInt("arrival_time"));
-                i++;
+                System.out.println(flug);
              }
-        
         }
         catch(SQLException e)
         {
           // if the error message is "out of memory",
           // it probably means no database file is found
           System.err.println(e.getMessage());
-          
-         
+
         }
         return theFlights;
     }
@@ -172,15 +177,53 @@ public class DatabaseManager {
         return 0;
     }
     //TODO fall sem naer i passenger ur gagnagrunni
-    public Passenger getPassenger(){
+    //kennitala
+    public Passenger getPassenger(int ssno){
+        Connection con = null;
+        try {
+            con = DriverManager.getConnection("jdbc:sqlite:flug.db");
+            Statement statement = con.createStatement();
+            statement.setQueryTimeout(30); 
+            
+            //Update farthegafjolda i schedule
+            statement.executeQuery("select* from passenger");
+            
+        }catch(Exception e){
+            System.out.println("Villa i getPassenger: " + e);
+        }
         return null;
     }
     //TODO SQL fall sem byr til bokun
-    public Booking createBooking(){
+    public Booking createBooking(int bookingID){
+        Connection con = null;
+        try {
+            con = DriverManager.getConnection("jdbc:sqlite:flug.db");
+            Statement statement = con.createStatement();
+            statement.setQueryTimeout(30); 
+            
+            //Update farthegafjolda i schedule
+            statement.executeQuery("select* from passenger");
+            
+        }catch(Exception e){
+            System.out.println("Villa i createBooking: " + e);
+        }
         return null;
     }
    //TODO SQL fall sem naer i staersta bookno og skilar thvi
     public int getMaxBookingNo(){
+        Connection con = null;
+        try {
+            con = DriverManager.getConnection("jdbc:sqlite:flug.db");
+            Statement statement = con.createStatement();
+            statement.setQueryTimeout(30); 
+            
+            //Update farthegafjolda i schedule
+            statement.executeQuery("select* from passenger");
+            
+        }catch(Exception e){
+            System.out.println("Villa i getMaxBookingNo: " + e);
+        }
+        
         return 0;
     }
     

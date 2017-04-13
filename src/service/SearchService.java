@@ -28,7 +28,7 @@ public class SearchService {
         //Hofum hér samband við SqlDaemi?
         DefaultTableModel flightmodel = new DefaultTableModel();
         try{
-        flightInfo = LovisaDBmanager.fakeLeit();
+        flightInfo = LovisaDBmanager.leitleit(toWhere, date, numbofPpl, fromWhere);
         //flightInfo = LovisaDBmanager.leitleit(toWhere, date, numbofPpl, fromWhere);
         sortFlights(flightInfo);
         flightmodel = flugIToflu();
